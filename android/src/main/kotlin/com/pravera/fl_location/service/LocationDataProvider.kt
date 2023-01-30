@@ -130,21 +130,21 @@ class LocationDataProvider(private val context: Context) {
 
 				var speedAccuracy: Double? = null
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
-					speedAccuracy = location.speedAccuracyMetersPerSecond.toDouble()
+					speedAccuracy = location!!.speedAccuracyMetersPerSecond.toDouble()
 
 				var isMock: Boolean? = null
 				if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR2)
-					isMock = location.isFromMockProvider
+					isMock = location!!.isFromMockProvider
 
 				val locationData = LocationData(
-					latitude = location.latitude,
-					longitude = location.longitude,
-					accuracy = location.accuracy.toDouble(),
-					altitude = location.altitude,
-					heading = location.bearing.toDouble(),
-					speed = location.speed.toDouble(),
+					latitude = location!!.latitude,
+					longitude = location!!.longitude,
+					accuracy = location!!.accuracy.toDouble(),
+					altitude = location!!.altitude,
+					heading = location!!.bearing.toDouble(),
+					speed = location!!.speed.toDouble(),
 					speedAccuracy = speedAccuracy,
-					millisecondsSinceEpoch = location.time.toDouble(),
+					millisecondsSinceEpoch = location!!.time.toDouble(),
 					isMock = isMock
 				)
 
